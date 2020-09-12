@@ -19,7 +19,6 @@ const ITEMS = styled(NavLink)`
 	color: white;
 `
 
-// const nav_items = ['home', 'work', 3, 4, 5]
 const nav_items = [
 	{ name: 'home', path: '/' },
 	{ name: 'work', path: '/work' },

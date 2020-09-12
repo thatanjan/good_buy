@@ -1,26 +1,22 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import Logo from 'assets/svgs/amazon-2.svg'
 import { global_break } from '../../App.js'
 import Loadable from 'react-loadable'
+
+// logos
+import AMAZON_LOGO from 'components/logos/amazon'
+import CART_LOGO from 'components/logos/cart'
 
 const CONTAINER = styled.div`
 	min-height: 10vh;
 	max-width: 100vw;
 	background: aqua;
 	display: grid;
-	grid-template-columns: 1fr 30%;
+	grid-template-columns: 30% 1fr 30%;
 `
 const Loading = () => <div>loading</div>
 
-const LOGO = styled.img`
-	// background: orange;
-	height: 50%;
-	max-width: 10rem;
-	margin-left: 4rem;
-	align-self: center;
-`
 const NAVIGATION = Loadable({
 	loader: () =>
 		import('components/navigation/navigation.jsx'),
@@ -44,8 +40,9 @@ const TOP_BAR = ({ location }) => {
 	window.addEventListener('resize', resize_function)
 	return (
 		<CONTAINER>
-			<LOGO src={Logo}></LOGO>
 			<NAVIGATION window_state={window_state} />
+			<AMAZON_LOGO />
+			<CART_LOGO />
 		</CONTAINER>
 	)
 }
