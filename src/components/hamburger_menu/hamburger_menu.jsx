@@ -20,8 +20,6 @@ const HAMBURGER_CONTAINER = styled.ul`
 	}
 `
 
-let height = ham_burger_length * 0.16
-
 const HAMBURGER_LINES = styled.li`
 	width: ${ham_burger_length}rem;
 	height: 0.8rem;

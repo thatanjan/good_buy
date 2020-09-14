@@ -21,9 +21,9 @@ const ITEMS = styled(NavLink)`
 
 const nav_items = [
 	{ name: 'home', path: '/' },
-	{ name: 'work', path: '/work' },
-	{ name: 'services', path: '/services' },
-	{ name: 'about me', path: '/about_me' },
+	{ name: 'cart', path: '/help' },
+	{ name: 'sign in', path: '/help' },
+	{ name: 'help', path: '/help' },
 ]
 
 export let nav_items_quantity = nav_items.length

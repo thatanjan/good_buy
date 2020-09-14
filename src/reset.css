@@ -99,8 +99,8 @@ body {
 	box-sizing: border-box;
 	background-color: #202020;
 	max-width: 100vw;
-	max-height: 100vh;
-	overflow: hidden;
+	/* max-height: 100vh; */
+	overflow-x: hidden;
 }
 
 .app {
@@ -190,6 +190,7 @@ hr {
 	margin: 1em 0;
 	padding: 0;
 }
+
 input,
 select {
 	vertical-align: middle;
@@ -201,4 +202,11 @@ select {
 
 ul {
 	list-style-type: none;
+}
+
+button {
+	font-size: 100%;
+	font-family: inherit;
+	border: 0;
+	padding: 0;
 }

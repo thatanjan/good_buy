@@ -6,14 +6,14 @@ import Loadable from 'react-loadable'
 
 // logos
 import AMAZON_LOGO from 'components/logos/amazon'
-import CART_LOGO from 'components/logos/cart'
+import CART_LOGO from 'components/cart/cart'
 
 const CONTAINER = styled.div`
 	min-height: 10vh;
 	max-width: 100vw;
-	background: aqua;
 	display: grid;
 	grid-template-columns: 30% 1fr 30%;
+	// background: aqua;
 `
 const Loading = () => <div>loading</div>
 

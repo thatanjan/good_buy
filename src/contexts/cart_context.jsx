@@ -1,27 +1,22 @@
 import React, { createContext, useReducer } from 'react'
 
-import modifier from 'reducers/cart_reducers'
+import {
+	cart_reducer,
+	initial_state,
+} from 'reducers/cart_reducers'
 
-const CONTEXT = createContext()
+export const CART_CONTEXT = createContext()
 
-const initial_state = [
-	{
-		total_price: 0,
-		total_items: 0,
-	},
-]
-
-const [cart_state, modify_cart] = useReducer(
-	modifier,
-	initial_state
-)
-
-const CART_CONTEXT = ({ children }) => {
+const THE_CONTEXT = ({ children }) => {
+	const the_reducer = useReducer(
+		cart_reducer,
+		initial_state
+	)
 	return (
-		<CONTEXT.Provider value={cart_state}>
+		<CART_CONTEXT.Provider value={the_reducer}>
 			{children}
-		</CONTEXT.Provider>
+		</CART_CONTEXT.Provider>
 	)
 }
 
-export default CART_CONTEXT
+export default THE_CONTEXT
