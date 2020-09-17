@@ -13,7 +13,7 @@ const CONTAINER = styled.div`
 	max-width: 100vw;
 	display: grid;
 	grid-template-columns: 30% 1fr 30%;
-	// background: aqua;
+	// background: aqu
 `
 const Loading = () => <div>loading</div>
 

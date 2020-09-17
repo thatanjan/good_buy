@@ -9,6 +9,7 @@ export const initial_state = [
 export const cart_reducer = (state, { type, item }) => {
 	let { name, price, in_the_cart } = item
 	// let [{ items }, { total_price }] = state
+	console.log(name, in_the_cart)
 
 	switch (type) {
 		case 'add to cart':
@@ -16,11 +17,11 @@ export const cart_reducer = (state, { type, item }) => {
 			item.in_the_cart = true
 			state[0].items.push(item)
 			return state
-			break
+		// break
 
 		case 'delete from cart':
 			return null
-			break
+		// break
 
 		default:
 			return null

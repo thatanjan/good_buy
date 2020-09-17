@@ -209,4 +209,5 @@ button {
 	font-family: inherit;
 	border: 0;
 	padding: 0;
+	text-transform: uppercase;
 }

@@ -1,9 +1,25 @@
-import React, { createContext } from 'react'
+import React, { createContext, useReducer } from 'react'
 
-const CONTEXT = createContext()
+import {
+	state,
+	user_auth_reducer,
+} from 'reducers/user_auth_reducer'
+// import { useUserAuthData } from 'hooks/user_auth'
 
-const USER_CONTEXT = ({ children }) => {
-	return <CONTEXT.Provider>{children}</CONTEXT.Provider>
+export const USER_CONTEXT = createContext()
+
+const CONTEXT = ({ children }) => {
+	// const user_data = useUserAuthData()
+	const auth_reducer = useReducer(
+		user_auth_reducer,
+		state
+	)
+
+	return (
+		<USER_CONTEXT.Provider value={auth_reducer}>
+			{children}
+		</USER_CONTEXT.Provider>
+	)
 }
 
-export default USER_CONTEXT
+export default CONTEXT

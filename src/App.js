@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch, withRouter, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
+import { useUserAuthData } from 'hooks/user_auth'
+
 import TOP_BAR from 'components/top_bar/top_bar'
-
-// image
-// import FRONT_IMAGE from 'components/front_image/front_image'
-
-// import PAGES from 'pages/root/page'
 
 export const Loading = () => <div>loading</div>
 
@@ -26,9 +23,14 @@ const SIGN = Loadable({
 export let global_break = 1600
 
 const App = ({ location }) => {
-	console.log(location.pathname)
+	const state = useUserAuthData()[0]
+	useEffect(() => {
+		console.log(state)
+	}, [state])
+
 	return (
 		<>
+			<div>{state.user?.user?.email}</div>
 			{location.pathname !== '/sign' && (
 				<TOP_BAR></TOP_BAR>
 			)}
@@ -45,9 +47,6 @@ const App = ({ location }) => {
 					component={SIGN}
 				/>
 			</Switch>
-
-			{/* <BACKGROUND /> */}
-			{/* <FRONT_IMAGE window_state={window_state} /> */}
 		</>
 	)
 }

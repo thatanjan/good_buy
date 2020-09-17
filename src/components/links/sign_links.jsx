@@ -1,23 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { NavLink } from 'react-router-dom'
-
-export const LINK = styled(NavLink).attrs((props) => ({
-	children: props.children,
-}))`
-	color: #472fd7;
+export const LINK = styled.div`
+	color: #3668ff;
+	align-self: start;
+	font-size: 2vh;
+	margin-top: 1rem;
+	cursor: pointer;
 `
 
-const HAVE_ACCOUNT = styled.p``
+const HAVE_ACCOUNT = styled.p`
+	align-self: end;
+	font-size: 3vh;
+	text-align: center;
+`
 
-const WRAPPER = styled.div``
+const WRAPPER = styled.div`
+	display: grid;
+	justify-items: center;
+`
 
 const CONTAINER = (props) => {
 	return (
 		<WRAPPER>
-			<HAVE_ACCOUNT />
-			<LINK to="" children={props.have_account} />
+			<HAVE_ACCOUNT
+				children={"Don't have an account"}
+			/>
+			<LINK to="/log" children={'sign up'} />
 		</WRAPPER>
 	)
 }

@@ -21,8 +21,8 @@ const ITEMS = styled(NavLink)`
 
 const nav_items = [
 	{ name: 'home', path: '/' },
-	{ name: 'cart', path: '/help' },
-	{ name: 'sign in', path: '/help' },
+	{ name: 'cart', path: '/cart' },
+	{ name: 'sign in', path: '/sign' },
 	{ name: 'help', path: '/help' },
 ]
 
