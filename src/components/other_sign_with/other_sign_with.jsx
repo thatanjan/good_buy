@@ -3,9 +3,11 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import generate from 'shortid'
 
-import { third_party_sign_in } from 'reducers/user_auth_reducer'
-
-import { useUserAuthData } from 'hooks/user_auth'
+import { third_party_sign_in } from 'utils/firebase_utils/firebase_setup'
+import {
+	useUserAuthData,
+	useLoginState,
+} from 'hooks/user_auth'
 
 // logos
 import GOOGLE from 'assets/svgs/google-icon.svg'
@@ -89,41 +91,21 @@ options.forEach((item) => {
 })
 
 const OTHER_SIGN_WITH = ({ toggle_show }) => {
-	const user_sign_in = useUserAuthData()[1]
+	// is any user log in
+	const [
+		is_logged_in,
+		set_is_logged_in,
+	] = useLoginState()
 
-	const state = useUserAuthData()[0]
-
-	// console.log(third_party_sign_in)
-	// for sign_in_with google
-	// const sign_in = () => {
-	// 	google_sign_in()
-	// 		.then(() => {
-	// 			change_user_log_in_state({
-	// 				type: google_sign,
-	// 			})
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err)
-	// 		})
-	// }
-
+	// on click sign in with provider
 	const sign_in = (provider_name) => {
-		// console.log(provider_name)
-		user_sign_in({
-			type: third_party_sign_in,
-			provider_name: provider_name,
-		})
+		third_party_sign_in(provider_name).then(() =>
+			set_is_logged_in(true)
+		)
 	}
-	// useEffect(() => {
-	// 	user_sign_in({ type: 'GET' })
-	// }, [])
 
 	return (
 		<MODAL_CONTAINER>
-			{state !== null ? (
-				<h1>{state.user.email}</h1>
-			) : null}
-
 			<QUIT children="x" onClick={toggle_show} />
 			<CONTAINER>
 				{options.map((item) => (

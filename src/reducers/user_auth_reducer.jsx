@@ -1,10 +1,7 @@
 import google_sign_in from 'firebase/firebase'
 
 // import { third_party_sign_in as other_party_sign_in } from 'utils/firebase_utils/3rd_party_sign_in'
-import {
-	third_party_sign_in as other_party_sign_in,
-	get_user,
-} from 'utils/firebase_utils/firebase_setup'
+import { third_party_sign_in as other_party_sign_in } from 'utils/firebase_utils/firebase_setup'
 
 export const state = {
 	user: null,
@@ -31,14 +28,14 @@ export const user_auth_reducer = (
 			return other_party_sign_in(provider_name)
 			break
 
-		case 'GET':
-			get_user((user) => {
-				if (user) {
-					console.log(user)
-				} else {
-					console.log('no user')
-				}
-			})
+		// case 'GET':
+		// 	get_user((user) => {
+		// 		if (user) {
+		// 			console.log(user)
+		// 		} else {
+		// 			console.log('no user')
+		// 		}
+		// 	})
 
 		default:
 			return state

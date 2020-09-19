@@ -20,13 +20,29 @@ const WRAPPER = styled.div`
 	justify-items: center;
 `
 
-const CONTAINER = (props) => {
+const CONTAINER = ({
+	have_account,
+	children,
+	change_form_status,
+}) => {
 	return (
 		<WRAPPER>
 			<HAVE_ACCOUNT
-				children={"Don't have an account"}
+				children={
+					have_account
+						? "Don't have an account"
+						: 'already have an account?'
+				}
 			/>
-			<LINK to="/log" children={'sign up'} />
+			<LINK
+				to="/log"
+				children={
+					have_account
+						? `sign up`
+						: `sign in`
+				}
+				onClick={change_form_status}
+			/>
 		</WRAPPER>
 	)
 }

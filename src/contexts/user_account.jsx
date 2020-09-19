@@ -2,37 +2,38 @@ import React, {
 	useEffect,
 	useState,
 	createContext,
-	useReducer,
 } from 'react'
 
-import {
-	state,
-	user_auth_reducer,
-} from 'reducers/user_auth_reducer'
-// import { useUserAuthData } from 'hooks/user_auth'
+import { auth } from 'utils/firebase_utils/firebase_setup'
 
 export const USER_CONTEXT = createContext()
 
 const CONTEXT = ({ children }) => {
-	const [the_state, set_the_state] = useState(null)
+	const [user_state, set_user_state] = useState(null)
 
-	// const user_data = useUserAuthData()
-	const [user_state, set_user_state] = useReducer(
-		user_auth_reducer,
-		state
+	const [is_logged_in, set_is_logged_in] = useState(
+		false
 	)
 
 	useEffect(() => {
-		if (user_state.then)
-			user_state.then((res) => set_the_state(res))
-	}, [user_state])
+		auth.onAuthStateChanged((user) => {
+			if (user) {
+				console.log(user)
+				set_is_logged_in(true)
+				set_user_state(user)
+			} else {
+				console.log('no user')
+			}
+		})
+	}, [])
 
-	// user_state
+	const context_value = [
+		[user_state, set_user_state],
+		[is_logged_in, set_is_logged_in],
+	]
 
 	return (
-		<USER_CONTEXT.Provider
-			value={[the_state, set_user_state]}
-		>
+		<USER_CONTEXT.Provider value={context_value}>
 			{children}
 		</USER_CONTEXT.Provider>
 	)

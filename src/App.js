@@ -4,6 +4,8 @@ import Loadable from 'react-loadable'
 
 import { useUserAuthData } from 'hooks/user_auth'
 
+import { auth } from 'utils/firebase_utils/firebase_setup'
+
 import TOP_BAR from 'components/top_bar/top_bar'
 
 export const Loading = () => <div>loading</div>
@@ -23,16 +25,8 @@ const SIGN = Loadable({
 export let global_break = 1600
 
 const App = ({ location }) => {
-	const state = useUserAuthData()[0]
-	// useEffect(() => {
-	// 	console.log(state)
-	// }, [state])
-
 	return (
 		<>
-			{state !== null ? (
-				<h1>state.user.email</h1>
-			) : null}
 			{location.pathname !== '/sign' && (
 				<TOP_BAR></TOP_BAR>
 			)}

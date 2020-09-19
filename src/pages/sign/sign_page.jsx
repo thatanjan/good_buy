@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+
+import { useLoginState } from 'hooks/user_auth'
 
 // components
 import HAVE_ACCOUNT from 'components/links/sign_links'
@@ -10,8 +12,8 @@ import SIGN_BUTTON from 'components/buttons/sign_button'
 import amazon_logo from 'assets/svgs/amazon-2.svg'
 
 let grid_center = `
-display: grid;
-place-items: center;
+	   display: grid;
+	   place-items: center;
 `
 
 const LOGO_CONTAINER = styled.div`
@@ -49,15 +51,27 @@ const PAGE_TITLE = styled.div`
 `
 
 const SIGN_PAGE = ({ location, match }) => {
+	const [have_account, set_have_account] = useState(true)
+
+	const sign_text = `sign ${have_account ? 'in' : 'up'}`
+
+	const change_form_status = () => {
+		set_have_account(!have_account)
+	}
+
 	return (
 		<PAGE_CONTAINER>
 			<LOGO_CONTAINER>
 				<LOGO src={amazon_logo} />
 			</LOGO_CONTAINER>
-			<PAGE_TITLE children={'sign in'} />
+			<PAGE_TITLE children={`${sign_text}`} />
 			<SIGN_FORM />
-			<SIGN_BUTTON />
-			<HAVE_ACCOUNT children={'sign in'} />
+			<SIGN_BUTTON status={sign_text} />
+			<HAVE_ACCOUNT
+				children={`${sign_text}`}
+				change_form_status={change_form_status}
+				have_account={have_account}
+			/>
 		</PAGE_CONTAINER>
 	)
 }

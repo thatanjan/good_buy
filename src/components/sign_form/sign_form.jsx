@@ -47,15 +47,16 @@ const SIGN_FORM = () => {
 		set_input_is_clicked,
 	] = useState(false)
 
-	const email_ref = createRef()
-	const password_ref = createRef()
+	const [email_value, set_email_value] = useState('')
+	const [password_value, set_password_value] = useState(
+		''
+	)
 
 	let toogle_lift_label = (e) => {
 		const input = e.target
 		const label = input.previousElementSibling
-		label.style.visibility = 'hidden'
-		set_input_is_clicked(!input_is_clicked)
-		console.log(label)
+		// set_input_is_clicked(!input_is_clicked)
+		// console.log(label)
 	}
 
 	return (
@@ -71,11 +72,6 @@ const SIGN_FORM = () => {
 						type={item}
 						name={item}
 						key={short_id()}
-						ref={
-							item === 'email'
-								? email_ref
-								: password_ref
-						}
 						onClick={toogle_lift_label}
 					/>
 				</INDIVIDUAL>

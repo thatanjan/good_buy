@@ -35,7 +35,7 @@ const BUTTON = styled(motion.button)`
 
 const SIGN_WITH_LINK = styled(LINK)``
 
-const SIGN_BUTTON = () => {
+const SIGN_BUTTON = ({ status }) => {
 	const [
 		show_other_sign_options,
 		set_show_other_sign_options,
@@ -54,11 +54,11 @@ const SIGN_BUTTON = () => {
 				initial="base"
 				whileHover="whileHover"
 				animate="animate"
-				children="sign in"
+				children={status}
 				type="submit"
 			/>
 			<SIGN_WITH_LINK
-				children="or sign in with"
+				children={`or ${status} with`}
 				onClick={show_other_sign}
 			/>
 
