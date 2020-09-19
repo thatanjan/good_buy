@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import styled from 'styled-components'
 import generate from 'shortid'
@@ -89,8 +89,11 @@ options.forEach((item) => {
 })
 
 const OTHER_SIGN_WITH = ({ toggle_show }) => {
-	const user_log_in = useUserAuthData()[1]
-	console.log(third_party_sign_in)
+	const user_sign_in = useUserAuthData()[1]
+
+	const state = useUserAuthData()[0]
+
+	// console.log(third_party_sign_in)
 	// for sign_in_with google
 	// const sign_in = () => {
 	// 	google_sign_in()
@@ -104,8 +107,23 @@ const OTHER_SIGN_WITH = ({ toggle_show }) => {
 	// 		})
 	// }
 
+	const sign_in = (provider_name) => {
+		// console.log(provider_name)
+		user_sign_in({
+			type: third_party_sign_in,
+			provider_name: provider_name,
+		})
+	}
+	// useEffect(() => {
+	// 	user_sign_in({ type: 'GET' })
+	// }, [])
+
 	return (
 		<MODAL_CONTAINER>
+			{state !== null ? (
+				<h1>{state.user.email}</h1>
+			) : null}
+
 			<QUIT children="x" onClick={toggle_show} />
 			<CONTAINER>
 				{options.map((item) => (
@@ -114,11 +132,9 @@ const OTHER_SIGN_WITH = ({ toggle_show }) => {
 						<SIGN_WITH_BUTTON
 							type="button"
 							onClick={() =>
-								user_log_in({
-									type: third_party_sign_in,
-									provider_name:
-										item.provider,
-								})
+								sign_in(
+									item.provider
+								)
 							}
 						>
 							{`sign in with ${item.name}`}

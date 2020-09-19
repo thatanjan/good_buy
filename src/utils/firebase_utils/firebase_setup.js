@@ -17,8 +17,9 @@ export const third_party_sign_in = (provider_name) => {
 	// console.log(firebase.auth[provider_name])
 	// console.log(provider_name)
 	const provider = new firebase.auth[provider_name]()
-	console.log(provider)
 	return firebase.auth().signInWithPopup(provider)
 }
+
+// export const get_user = firebase.auth().onAuthStateChanged
 
 // export const google_auth_provider = new firebase.auth.GoogleAuthProvider()

@@ -24,13 +24,15 @@ export let global_break = 1600
 
 const App = ({ location }) => {
 	const state = useUserAuthData()[0]
-	useEffect(() => {
-		console.log(state)
-	}, [state])
+	// useEffect(() => {
+	// 	console.log(state)
+	// }, [state])
 
 	return (
 		<>
-			<div>{state.user?.user?.email}</div>
+			{state !== null ? (
+				<h1>state.user.email</h1>
+			) : null}
 			{location.pathname !== '/sign' && (
 				<TOP_BAR></TOP_BAR>
 			)}
