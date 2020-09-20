@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const LINK = styled.div`
+export const variants = {
+	whileHover: {
+		y: 4,
+	},
+}
+
+export const LINK = styled(motion.div).attrs(() => ({
+	variants: variants,
+	whileHover: 'whileHover',
+}))`
 	color: #3668ff;
 	align-self: start;
-	font-size: 2vh;
+	font-size: 2.5vh;
 	margin-top: 1rem;
 	cursor: pointer;
 `
 
 const HAVE_ACCOUNT = styled.p`
 	align-self: end;
-	font-size: 3vh;
+	font-size: 2vh;
 	text-align: center;
 `
 
@@ -22,7 +32,6 @@ const WRAPPER = styled.div`
 
 const CONTAINER = ({
 	have_account,
-	children,
 	change_form_status,
 }) => {
 	return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { LINK } from 'components/links/sign_links'
+import { variants, LINK } from 'components/links/sign_links'
 
 import { motion } from 'framer-motion'
 
@@ -27,8 +27,8 @@ const CONTAINER = styled.div`
 const BUTTON = styled(motion.button)`
 	width: 80%;
 	max-width: 30rem;
-	padding: 1rem;
-	font-size: 2rem;
+	padding: 1vh;
+	font-size: 3vh;
 	cursor: pointer;
 	color: white;
 `

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { useLoginState } from 'hooks/user_auth'
+import { NavLink } from 'react-router-dom'
 
 // components
 import HAVE_ACCOUNT from 'components/links/sign_links'
@@ -9,25 +9,32 @@ import SIGN_FORM from 'components/sign_form/sign_form'
 import SIGN_BUTTON from 'components/buttons/sign_button'
 
 // the logo
-import amazon_logo from 'assets/svgs/amazon-2.svg'
+import { ReactComponent as AMAZON_LOGO } from 'assets/svgs/amazon-2.svg'
 
 let grid_center = `
 	   display: grid;
 	   place-items: center;
 `
 
-const LOGO_CONTAINER = styled.div`
-	display: grid;
-	place-items: center;
-	min-height: 15rem;
+// const LOGO_CONTAINER = styled.div`
+// 	display: grid;
+// 	place-items: center;
+// 	min-height: 15rem;
+// 	// background: red;
+// `
 
-	// background: red;
+const LOGO_WRAPPER = styled.div`
+	display: grid;
+	align-items: center;
 `
 
-const LOGO = styled.img`
-	height: 30%;
-	// background: wheat;
-	max-width: 100%;
+const LOGO_LINK = styled(NavLink)`
+	height: 6vh;
+	& > svg {
+		height: 100%;
+		max-width: 100%;
+		fill: white;
+	}
 `
 
 const PAGE_CONTAINER = styled.div`
@@ -47,7 +54,7 @@ const PAGE_TITLE = styled.div`
 	// min-height: 15rem;
 	${grid_center}
 	color: white;
-	font-size: 5vh;
+	font-size: 4vh;
 `
 
 const SIGN_PAGE = ({ location, match }) => {
@@ -59,13 +66,26 @@ const SIGN_PAGE = ({ location, match }) => {
 		set_have_account(!have_account)
 	}
 
+	const [email_value, set_email_value] = useState('')
+	const [password_value, set_password_value] = useState(
+		''
+	)
+
 	return (
 		<PAGE_CONTAINER>
-			<LOGO_CONTAINER>
-				<LOGO src={amazon_logo} />
-			</LOGO_CONTAINER>
+			<LOGO_WRAPPER>
+				<LOGO_LINK to="/">
+					<AMAZON_LOGO />
+				</LOGO_LINK>
+			</LOGO_WRAPPER>
 			<PAGE_TITLE children={`${sign_text}`} />
-			<SIGN_FORM />
+			<SIGN_FORM
+				values={{ email_value, password_value }}
+				dispatches={{
+					set_email_value,
+					set_password_value,
+				}}
+			/>
 			<SIGN_BUTTON status={sign_text} />
 			<HAVE_ACCOUNT
 				children={`${sign_text}`}

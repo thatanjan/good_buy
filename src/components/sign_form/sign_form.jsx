@@ -14,8 +14,8 @@ const FORM_INPUT = styled.input`
 	border: none;
 	border-bottom: 1px solid gray;
 	color: white;
-	padding-left: 2%;
-	font-size: 2vh;
+	padding: 0% 2%;
+	font-size: 2.5vh;
 `
 
 const INDIVIDUAL = styled.div`
@@ -31,32 +31,45 @@ const INDIVIDUAL = styled.div`
 `
 
 const LABEL = styled.label`
-	font-size: 2vh;
-	align-self: start;
+	font-size: 3vh;
+	align-self: end;
 	position: relative;
-	top: 80%;
 	margin-left: 4%;
+	// bottom: -70%;
 	pointer-event: none;
 `
 
 const input_types = ['email', 'password']
 
-const SIGN_FORM = () => {
+const SIGN_FORM = ({
+	values: { email_value, password_value },
+	dispatches: { set_email_value, set_password_value },
+}) => {
 	const [
 		input_is_clicked,
 		set_input_is_clicked,
 	] = useState(false)
 
-	const [email_value, set_email_value] = useState('')
-	const [password_value, set_password_value] = useState(
-		''
-	)
-
 	let toogle_lift_label = (e) => {
 		const input = e.target
 		const label = input.previousElementSibling
+		// label.style.bottom = '0%'
 		// set_input_is_clicked(!input_is_clicked)
-		// console.log(label)
+		// set_input_is_clicked(true)
+	}
+
+	const input_change = ({ target: { type, value } }) => {
+		if (type === 'email') {
+			// setTimeout(() => {
+			// 	set_email_value(value)
+			// })
+		} else {
+			// setTimeout(() => {
+			// 	set_password_value(value)
+			// })
+		}
+
+		console.log(email_value, password_value)
 	}
 
 	return (
@@ -67,12 +80,19 @@ const SIGN_FORM = () => {
 						htmlFor={item}
 						children={item}
 						key={short_id()}
+						clicked={input_is_clicked}
 					/>
 					<FORM_INPUT
 						type={item}
 						name={item}
 						key={short_id()}
 						onClick={toogle_lift_label}
+						value={
+							item === 'email'
+								? email_value
+								: password_value
+						}
+						onChange={input_change}
 					/>
 				</INDIVIDUAL>
 			))}
