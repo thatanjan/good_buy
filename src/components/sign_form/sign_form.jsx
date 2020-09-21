@@ -1,8 +1,10 @@
-import React, { createRef, useState } from 'react'
+import React, { createRef } from 'react'
 import styled from 'styled-components'
 import { generate as short_id } from 'shortid'
 
-const FORM_CONTAINER = styled.div`
+import SIGN_BUTTON from 'components/buttons/sign_button'
+
+const FORM_CONTAINER = styled.form`
 	display: grid;
 	place-items: center;
 	width: 100%;
@@ -41,61 +43,46 @@ const LABEL = styled.label`
 
 const input_types = ['email', 'password']
 
-const SIGN_FORM = ({
-	values: { email_value, password_value },
-	dispatches: { set_email_value, set_password_value },
-}) => {
-	const [
-		input_is_clicked,
-		set_input_is_clicked,
-	] = useState(false)
+const email_ref = createRef()
+const password_ref = createRef()
 
+const refs = [email_ref, password_ref]
+
+const SIGN_FORM = ({ status }) => {
 	let toogle_lift_label = (e) => {
-		const input = e.target
-		const label = input.previousElementSibling
+		// const input = e.target
+		// const label = input.previousElementSibling
 		// label.style.bottom = '0%'
 		// set_input_is_clicked(!input_is_clicked)
 		// set_input_is_clicked(true)
 	}
 
-	const input_change = ({ target: { type, value } }) => {
-		if (type === 'email') {
-			// setTimeout(() => {
-			// 	set_email_value(value)
-			// })
-		} else {
-			// setTimeout(() => {
-			// 	set_password_value(value)
-			// })
-		}
-
-		console.log(email_value, password_value)
+	const input_change = () => {
+		console.log(email_ref.current)
 	}
 
 	return (
 		<FORM_CONTAINER>
-			{input_types.map((item) => (
+			{input_types.map((item, index) => (
 				<INDIVIDUAL key={short_id()}>
 					<LABEL
 						htmlFor={item}
 						children={item}
 						key={short_id()}
-						clicked={input_is_clicked}
 					/>
 					<FORM_INPUT
 						type={item}
 						name={item}
 						key={short_id()}
 						onClick={toogle_lift_label}
-						value={
-							item === 'email'
-								? email_value
-								: password_value
-						}
+						ref={refs[index]}
 						onChange={input_change}
 					/>
 				</INDIVIDUAL>
 			))}
+
+			{/* the button */}
+			<SIGN_BUTTON status={status} refs={refs} />
 		</FORM_CONTAINER>
 	)
 }

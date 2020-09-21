@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Loadable from 'react-loadable'
 
 import { variants, LINK } from 'components/links/sign_links'
 
 import { motion } from 'framer-motion'
 
-import OTHER_SIGN_WITH from 'components/other_sign_with/other_sign_with'
+const Loading = () => <div>loading</div>
+
+const OTHER_SIGN_WITH = Loadable({
+	loader: () =>
+		import(
+			'components/other_sign_with/other_sign_with'
+		),
+	loading: Loading,
+})
 
 const button_variant = {
 	base: {
@@ -22,6 +31,7 @@ const button_variant = {
 const CONTAINER = styled.div`
 	display: grid;
 	place-items: center;
+	width: 100%;
 `
 
 const BUTTON = styled(motion.button)`
@@ -35,7 +45,7 @@ const BUTTON = styled(motion.button)`
 
 const SIGN_WITH_LINK = styled(LINK)``
 
-const SIGN_BUTTON = ({ status }) => {
+const SIGN_BUTTON = ({ status, refs }) => {
 	const [
 		show_other_sign_options,
 		set_show_other_sign_options,
@@ -47,6 +57,14 @@ const SIGN_BUTTON = ({ status }) => {
 		)
 	}
 
+	const submit_handeler = (event) => {
+		console.log(event)
+		refs.forEach((item) => {
+			item.current.value = ''
+		})
+		event.preventDefault()
+	}
+
 	return (
 		<CONTAINER>
 			<BUTTON
@@ -56,10 +74,12 @@ const SIGN_BUTTON = ({ status }) => {
 				animate="animate"
 				children={status}
 				type="submit"
+				onClick={submit_handeler}
 			/>
 			<SIGN_WITH_LINK
 				children={`or ${status} with`}
 				onClick={show_other_sign}
+				variants={variants}
 			/>
 
 			{show_other_sign_options && (

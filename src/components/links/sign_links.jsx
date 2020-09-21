@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+// animation for links
 export const variants = {
 	whileHover: {
 		y: 4,
@@ -15,7 +16,7 @@ export const LINK = styled(motion.div).attrs(() => ({
 	color: #3668ff;
 	align-self: start;
 	font-size: 2.5vh;
-	margin-top: 1rem;
+	margin-top: 2vh;
 	cursor: pointer;
 `
 

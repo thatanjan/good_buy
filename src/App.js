@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Switch, withRouter, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
-
-import { useUserAuthData } from 'hooks/user_auth'
-
-import { auth } from 'utils/firebase_utils/firebase_setup'
 
 import TOP_BAR from 'components/top_bar/top_bar'
 
@@ -22,14 +18,22 @@ const SIGN = Loadable({
 	loading: Loading,
 })
 
+const PRODUCT_DETAIL = Loadable({
+	loader: () =>
+		import('pages/product_detail/product_detail'),
+	loading: Loading,
+})
+
 export let global_break = 1600
 
 const App = ({ location }) => {
 	return (
 		<>
+			{/* show the top navigation bar only if not in /sign route */}
 			{location.pathname !== '/sign' && (
 				<TOP_BAR></TOP_BAR>
 			)}
+
 			<Switch>
 				<Route
 					path="/"
@@ -41,6 +45,12 @@ const App = ({ location }) => {
 					path="/sign"
 					exact
 					component={SIGN}
+				/>
+
+				<Route
+					path="/product"
+					exact
+					component={PRODUCT_DETAIL}
 				/>
 			</Switch>
 		</>
