@@ -10,7 +10,7 @@ const product = {
 }
 
 const CART_BUTTON = ({ in_the_cart }) => {
-	const [state, modify_cart] = useCartContext()
+	const modify_cart = useCartContext()[1]
 
 	let add_to_cart = 'add to cart'
 	let delete_from_cart = 'add to cart'

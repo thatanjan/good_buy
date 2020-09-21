@@ -4,11 +4,6 @@ import Loadable from 'react-loadable'
 
 import TOP_BAR from 'components/top_bar/top_bar'
 
-// image
-// import FRONT_IMAGE from 'components/front_image/front_image'
-
-// import PAGES from 'pages/root/page'
-
 export const Loading = () => <div>loading</div>
 
 // lazy Loading components
@@ -23,15 +18,22 @@ const SIGN = Loadable({
 	loading: Loading,
 })
 
+const PRODUCT_DETAIL = Loadable({
+	loader: () =>
+		import('pages/product_detail/product_detail'),
+	loading: Loading,
+})
+
 export let global_break = 1600
 
 const App = ({ location }) => {
-	console.log(location.pathname)
 	return (
 		<>
+			{/* show the top navigation bar only if not in /sign route */}
 			{location.pathname !== '/sign' && (
 				<TOP_BAR></TOP_BAR>
 			)}
+
 			<Switch>
 				<Route
 					path="/"
@@ -44,10 +46,13 @@ const App = ({ location }) => {
 					exact
 					component={SIGN}
 				/>
-			</Switch>
 
-			{/* <BACKGROUND /> */}
-			{/* <FRONT_IMAGE window_state={window_state} /> */}
+				<Route
+					path="/product"
+					exact
+					component={PRODUCT_DETAIL}
+				/>
+			</Switch>
 		</>
 	)
 }

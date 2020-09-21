@@ -1,23 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-import { NavLink } from 'react-router-dom'
+// animation for links
+export const variants = {
+	whileHover: {
+		y: 4,
+	},
+}
 
-export const LINK = styled(NavLink).attrs((props) => ({
-	children: props.children,
+export const LINK = styled(motion.div).attrs(() => ({
+	variants: variants,
+	whileHover: 'whileHover',
 }))`
-	color: #472fd7;
+	color: #3668ff;
+	align-self: start;
+	font-size: 2.5vh;
+	margin-top: 2vh;
+	cursor: pointer;
 `
 
-const HAVE_ACCOUNT = styled.p``
+const HAVE_ACCOUNT = styled.p`
+	align-self: end;
+	font-size: 2vh;
+	text-align: center;
+`
 
-const WRAPPER = styled.div``
+const WRAPPER = styled.div`
+	display: grid;
+	justify-items: center;
+`
 
-const CONTAINER = (props) => {
+const CONTAINER = ({
+	have_account,
+	change_form_status,
+}) => {
 	return (
 		<WRAPPER>
-			<HAVE_ACCOUNT />
-			<LINK to="" children={props.have_account} />
+			<HAVE_ACCOUNT
+				children={
+					have_account
+						? "Don't have an account"
+						: 'already have an account?'
+				}
+			/>
+			<LINK
+				to="/log"
+				children={
+					have_account
+						? `sign up`
+						: `sign in`
+				}
+				onClick={change_form_status}
+			/>
 		</WRAPPER>
 	)
 }
