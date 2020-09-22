@@ -13,7 +13,8 @@ export const LOGO = styled.img`
 	// background: orange;
 	height: 50%;
 	max-width: 10rem;
-	place-self: center;
+	place-self: center start;
+	// grid-column: 3/5;
 `
 
 const AMAZON = () => {

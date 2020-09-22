@@ -7,7 +7,7 @@ import cart_logo from 'assets/svgs/shopping-cart.svg'
 
 const CART_LOGO = styled(AMAZON_LOGO_STYLE)`
 	justify-self: end;
-	// margin-right: 4rem;
+	place-self: center;
 `
 
 const CART = () => {

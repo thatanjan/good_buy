@@ -7,7 +7,7 @@ import { useCartContext } from 'hooks/cart_hooks'
 
 const CONTAINER = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 5rem;
+	grid-template-columns: 1fr;
 	justify-content: end;
 
 	& > p {
@@ -25,7 +25,7 @@ const CART = () => {
 		<CONTAINER>
 			<CART_LOGO />
 			{/* <p>{cart_state[0].items.length}</p> */}
-			<p>{cart_state}</p>
+			{/* <p>{cart_state}</p> */}
 		</CONTAINER>
 	)
 }

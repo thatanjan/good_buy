@@ -3,11 +3,12 @@ import styled from 'styled-components'
 
 let ham_burger_length = 4
 const HAMBURGER_CONTAINER = styled.ul`
-	width: ${ham_burger_length}rem;
+	width: 100%;
 	z-index: 5;
-	justify-self: baseline;
+	display: grid;
 	align-self: center;
-	margin-left: 4rem;
+
+	justify-content: center;
 	&::last-child {
 		margin-bottom: 0rem;
 	}

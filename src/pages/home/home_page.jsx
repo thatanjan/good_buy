@@ -11,38 +11,7 @@ const product = {
 	in_the_cart: false,
 }
 const HOME = () => {
-	return (
-		<>
-			{/* <BANNER /> */}
-
-			<ALL_PRODUCT_WRAPPER>
-				<PRODUCT
-					title={product.title}
-					price={100}
-					rating={5}
-					image={product_image}
-				/>
-				<PRODUCT
-					title={product.title}
-					price={100}
-					rating={5}
-					image={product_image}
-				/>
-				<PRODUCT
-					title={product.title}
-					price={100}
-					rating={5}
-					image={product_image}
-				/>
-				<PRODUCT
-					title={product.title}
-					price={100}
-					rating={5}
-					image={product_image}
-				/>
-			</ALL_PRODUCT_WRAPPER>
-		</>
-	)
+	return <></>
 }
 
 export default HOME
