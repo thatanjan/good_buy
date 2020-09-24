@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import PRODUCT_COLLECTION from 'components/product_collection/product_collection'
+import FOOTER from 'components/footer/footer'
 
 const CONTAINER = styled.div`
 	height: auto;
@@ -15,15 +16,20 @@ const CONTAINER = styled.div`
 		justify-content: center;
 		align-items: center;
 		background: black;
-		span {
-			transform: rotate(-90deg);
-			margin-left: 10px;
-			font-size: 3vh;
+
+		.arrow-up {
+			margin-left: 1rem;
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 10px solid white;
 		}
 	}
 `
 
 const HOME = () => {
+	// scroll back to top
 	const go_to_top = (event) => {
 		document.body.scrollTop = 0 // For Safari
 		document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
@@ -40,8 +46,11 @@ const HOME = () => {
 				onClick={go_to_top}
 			>
 				you have reach the end{' '}
-				<span>{`>>`}</span>
-			</button>{' '}
+				<div className="arrow-up"></div>
+			</button>
+
+			{/* the footer */}
+			<FOOTER />
 		</CONTAINER>
 	)
 }
