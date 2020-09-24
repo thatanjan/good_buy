@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const RATIO__CONTAINER_STYLE = styled.div`
-	background: rgb(32, 32, 32);
+	margin-top: 1rem;
 	background: linear-gradient(
 		180deg,
 		rgba(32, 32, 32, 1) 0%,

@@ -13,7 +13,7 @@ export const LOGO = styled.img`
 	// background: orange;
 	height: 50%;
 	max-width: 10rem;
-	place-self: center start;
+	place-self: center;
 	// grid-column: 3/5;
 `
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 import shortid from 'shortid'
 
 const CONTAINER = styled.nav`
@@ -14,11 +15,16 @@ const CONTAINER = styled.nav`
 	);
 
 	overflow: auto;
-	display: flex;
-	// white-space: nowrap;
+	white-space: nowrap;
 
-	& > div {
-		// display: inline-block;
+	@media (min-width: 800px) {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+	}
+
+	& > a {
+		display: inline-block;
 		padding: 1rem;
 		position: relative;
 		top: 50%;
@@ -42,7 +48,8 @@ const OPTIONS = () => {
 	return (
 		<CONTAINER>
 			{items.map((item) => (
-				<div
+				<NavLink
+					to=""
 					children={item}
 					key={shortid.generate()}
 				/>

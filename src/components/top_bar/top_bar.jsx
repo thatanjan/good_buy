@@ -72,21 +72,15 @@ const CONTAINER = styled.div`
 
 	.delivery {
 		background: rgba(104, 104, 104, 0.08);
-		/* background: linear-gradient( 180deg,rgba(148,101,1,1) 0%,rgba(241,164,0,1) 100% ); */
 		width: 100vw;
 		color: white;
-		// place-items: center;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		& .location {
 			height: 10vh;
-			place-self: center end;
 			max-height: 3rem;
-		}
-
-		span {
-			align-self: center;
 		}
 	}
 `
