@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Loadable from 'react-loadable'
-
-import { AnimatePresence } from 'framer-motion'
 
 // components
 const Loading = () => <div>loading</div>
 
 //  lazy loading components
 //  the navigation bar
-const NAVIGATION_BAR = Loadable({
-	loader: () =>
-		import(
-			'components/navigation_bar/navigation_bar'
-		),
-	loading: Loading,
-})
+// const NAVIGATION_BAR = Loadable({
+// 	loader: () =>
+// 		import(
+// 			'components/navigation_bar/navigation_bar'
+// 		),
+// 	loading: Loading,
+// })
 
 // the hamburger_menu
 const HAMBURGER_MENU = Loadable({

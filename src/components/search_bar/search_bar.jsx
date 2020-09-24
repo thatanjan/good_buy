@@ -8,7 +8,7 @@ const CONTAINER = styled.form`
 	max-height: 4rem;
 	width: 80%;
 	display: grid;
-	grid-template-columns: 1fr minmax(10px, 10%);
+	grid-template-columns: 1fr minmax(10px, 5rem);
 	place-items: center;
 
 	& > input {
@@ -28,7 +28,8 @@ const CONTAINER = styled.form`
 	}
 
 	svg {
-		max-width: 2.6rem;
+		width: 60%;
+		padding: 0.4rem;
 		fill: white;
 	}
 `

@@ -1,17 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { LOGO as AMAZON_LOGO_STYLE } from 'components/logos/amazon'
+import { ReactComponent as CART_LOGO } from 'assets/svgs/shopping-cart.svg'
 
-import cart_logo from 'assets/svgs/shopping-cart.svg'
+const CONTAINER = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: end;
+	padding: 0 2vh;
 
-const CART_LOGO = styled(AMAZON_LOGO_STYLE)`
-	justify-self: end;
-	place-self: center;
+	& > svg {
+		place-self: center;
+		max-width: none;
+		height: 5vh;
+		min-height: 4rem;
+	}
 `
 
 const CART = () => {
-	return <CART_LOGO src={cart_logo} />
+	return (
+		<CONTAINER>
+			<CART_LOGO />
+		</CONTAINER>
+	)
 }
 
 export default CART
