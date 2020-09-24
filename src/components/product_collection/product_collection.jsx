@@ -2,56 +2,79 @@ import React from 'react'
 import styled from 'styled-components'
 
 const RATIO__CONTAINER_STYLE = styled.div`
+	background: rgb(32, 32, 32);
+	background: linear-gradient(
+		180deg,
+		rgba(32, 32, 32, 1) 0%,
+		rgba(13, 13, 13, 0.3870430238785282) 100%
+	);
 	position: relative;
-	// height: 40vw;
-	width: 100%;
-	max-height: 10rem;
-	overflow: hidden;
-	padding-top: 82.5%;
+	width: 100vw;
+	padding-top: 100%;
+
+	@media (min-width: 768px) {
+		padding-top: 35%;
+	}
+
+	@media (min-width: 1200px) {
+		padding-top: 25%;
+	}
 `
 
 const CONTAINER = styled.div`
 	position: absolute;
-	background: aqua;
-	display: grid;
-	grid-template-rows: 15% 1fr 15%;
 	top: 0;
 	left: 0;
-	height: 100%;
 	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: auto 4fr auto;
 
-	& h2,
-	.see_more {
-		// grid-column: 1/3;
-		// margin: 0 0 0 5%;
-		// align-self: center;
+	// box-shadow
+	-webkit-box-shadow: 14px 26px 66px -14px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 14px 26px 66px -14px rgba(0, 0, 0, 0.75);
+	box-shadow: 14px 26px 66px -14px rgba(0, 0, 0, 0.75);
+
+	h2,
+	.see__more {
+		color: white;
+		align-self: center;
+		padding: 1rem;
 	}
 
-	.see_more {
-		// color: #2e2eff;
-		// font: 2vh;
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	div > a {
+		font-size: 1.5rem;
+		color: inherit;
 	}
 `
 
 const PRODUCT_CONTAINER = styled.div`
-	display: grid;
-	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	margin: 0 5px;
+
+	display: grid;
 	grid-template-columns: repeat(2, 50%);
 	grid-template-rows: repeat(2, 50%);
-	background: teal;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 1fr;
+		grid-gap: 0px 5px;
+	}
 `
 
-const PRODUCT = styled.div`
-	border: 1px solid black;
-	// background: teal;
-	height: 50%;
-	width: 100%;
-	// overflow: hidden;
-	& > img {
+const PRODUCTS = styled.div`
+	overflow: hidden;
+
+	img {
 		height: 100%;
 		width: 100%;
-		// object-fit: fill;
+		object-fit: cover;
 	}
 `
 
@@ -61,34 +84,35 @@ const PRODUCT_COLLECTION = () => {
 			<CONTAINER>
 				<h2>see the exclusive details below</h2>
 				<PRODUCT_CONTAINER>
-					<PRODUCT>
-						{/* <img */}
-						{/* 	src="https://mi0.rightinthebox.com/images/384x384/201807/erlohv1532341226984.jpg" */}
-						{/* 	alt="" */}
-						{/* /> */}
-					</PRODUCT>
-					<PRODUCT>
-						{/* <img */}
-						{/* 	src="https://mk0trickyphotos51tq5.kinstacdn.com/wp-content/uploads/2019/03/product-shoe-initial.jpg" */}
-						{/* 	alt="" */}
-						{/* /> */}
-					</PRODUCT>
-					<PRODUCT>
-						{/* <img */}
-						{/* 	src="https://43.img.avito.st/640x480/5863013643.jpg" */}
-						{/* 	alt="" */}
-						{/* /> */}
-					</PRODUCT>
-					<PRODUCT>
-						{/* <img */}
-						{/* 	src="https://kompark.ru/wp-content/uploads/2019/03/V1AAul9f3ao.jpg" */}
-						{/* 	alt="" */}
-						{/* /> */}
-					</PRODUCT>
+					<PRODUCTS>
+						<img
+							src="https://kompark.ru/wp-content/uploads/2019/03/V1AAul9f3ao.jpg"
+							alt=""
+						/>
+					</PRODUCTS>
+					<PRODUCTS>
+						<img
+							src="https://43.img.avito.st/640x480/5863013643.jpg"
+							alt=""
+						/>
+					</PRODUCTS>
+					<PRODUCTS>
+						<img
+							src="https://mi0.rightinthebox.com/images/384x384/201807/erlohv1532341226984.jpg"
+							alt=""
+						/>
+					</PRODUCTS>
+					<PRODUCTS>
+						<img
+							src="https://mk0trickyphotos51tq5.kinstacdn.com/wp-content/uploads/2019/03/product-shoe-initial.jpg"
+							alt=""
+						/>
+					</PRODUCTS>
 				</PRODUCT_CONTAINER>
-				<a className="see_more" href="/">
-					see more
-				</a>
+
+				<div className="see__more">
+					<a href="/">see more &rarr;</a>
+				</div>
 			</CONTAINER>
 		</RATIO__CONTAINER_STYLE>
 	)
