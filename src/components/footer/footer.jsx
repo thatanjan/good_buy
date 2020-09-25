@@ -64,6 +64,7 @@ const FOOTER_TWO = styled.div`
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		padding: 2rem 0;
+		place-items: start center;
 
 		.other {
 			place-self: center;
