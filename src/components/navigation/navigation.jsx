@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Loadable from 'react-loadable'
+import { AnimatePresence } from 'framer-motion'
+
+import home_page_ref from 'pages/home/home_page'
 
 // components
 const Loading = () => <div>loading</div>
 
 //  lazy loading components
-//  the navigation bar
-// const NAVIGATION_BAR = Loadable({
-// 	loader: () =>
-// 		import(
-// 			'components/navigation_bar/navigation_bar'
-// 		),
-// 	loading: Loading,
-// })
+// the navigation bar
+const NAVIGATION_BAR = Loadable({
+	loader: () =>
+		import(
+			'components/navigation_bar/navigation_bar'
+		),
+	loading: Loading,
+})
 
 // the hamburger_menu
 const HAMBURGER_MENU = Loadable({
@@ -24,48 +27,52 @@ const HAMBURGER_MENU = Loadable({
 })
 
 const NAVIGATION = ({ window_state }) => {
-	// // should navigation bar shows
-	// const [
-	// 	should_show_navbar,
-	// 	set_should_show_navbar,
-	// ] = useState(false)
+	// const home_page_element = useRef(home_page_ref).current
 
-	// // is hamburger_menu clicked or not
-	// const [
-	// 	is_menu_clicked,
-	// 	set_is_menu_clicked,
-	// ] = useState(false)
+	const disable_scroll = (condition) => {
+		const class_name = 'disable__scroll'
+		const home_page_element = document.querySelector(
+			'.home_page'
+		)
 
-	// // toggle the navigation
-	// const toggle_navigation = (event) => {
-	// 	set_is_menu_clicked(!is_menu_clicked)
-	// }
+		if (!condition) {
+			home_page_element.classList.add(class_name)
+		} else {
+			home_page_element.classList.remove(
+				class_name
+			)
+		}
+		// home_page_element.style.overflow = !condition
+		// 	? 'hidden'
+		// 	: 'initial'
+	}
 
-	// useEffect(() => {
-	// 	// this will check for if the window is 1600px wide. if it is and hamburger_menu is clicked then the navigation bar will show. if not then navigation will not show.
+	// should navigation bar shows
+	const [
+		toggle_navigation,
+		set_toggle_navigation,
+	] = useState(false)
 
-	// 	if (
-	// 		window_state === false ||
-	// 		is_menu_clicked === true
-	// 	) {
-	// 		set_should_show_navbar(true)
-	// 		console.log(should_show_navbar)
-	// 	} else {
-	// 		set_should_show_navbar(false)
-	// 	}
-	// }, [window_state, should_show_navbar, is_menu_clicked])
+	// toggle the navigation
+	const toggle_nav = (event) => {
+		set_toggle_navigation(!toggle_navigation)
+		disable_scroll(toggle_navigation)
+		// console.log(home_page_element)
+		// set_is_menu_clicked(!is_menu_clicked)
+	}
 
 	return (
 		<>
-			{/* {window_state === true ? ( */}
-			<HAMBURGER_MENU />
-			{/* ) : null} */}
-
-			{/* <AnimatePresence> */}
-			{/* 	{should_show_navbar && ( */}
-			{/* 		<NAVIGATION_BAR /> */}
-			{/* 	)} */}
-			{/* </AnimatePresence> */}
+			{!toggle_navigation && (
+				<HAMBURGER_MENU click={toggle_nav} />
+			)}
+			<AnimatePresence>
+				{toggle_navigation && (
+					<NAVIGATION_BAR
+						toggle={toggle_nav}
+					/>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }

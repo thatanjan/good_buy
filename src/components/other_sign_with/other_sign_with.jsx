@@ -5,22 +5,12 @@ import generate from 'shortid'
 
 import { third_party_sign_in } from 'utils/firebase_utils/firebase_setup'
 import { useLoginState } from 'hooks/user_auth'
+import QUIT_BUTTON from 'components/quit_button/quit_button'
 
 // logos
 import GOOGLE from 'assets/svgs/google-icon.svg'
 import FACEBOOK from 'assets/svgs/facebook-icon.svg'
 import GITHUB from 'assets/svgs/github.svg'
-
-const QUIT = styled.span`
-	color: white;
-	position: absolute;
-	top: 15%;
-	right: 10%;
-	font-size: 4vh;
-	cursor: pointer;
-	font-weight: 300;
-	font-family: Arial, sans-serif;
-`
 
 const MODAL_CONTAINER = styled.div`
 	position: absolute;
@@ -100,7 +90,10 @@ const OTHER_SIGN_WITH = ({ toggle_show }) => {
 
 	return (
 		<MODAL_CONTAINER>
-			<QUIT children="x" onClick={toggle_show} />
+			<QUIT_BUTTON
+				children="x"
+				toggle={toggle_show}
+			/>
 			<CONTAINER>
 				{options.map((item) => (
 					<INDIVIDUAL key={generate()}>

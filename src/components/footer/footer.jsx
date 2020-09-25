@@ -96,7 +96,10 @@ const FOOTER = () => {
 		<>
 			<FOOTER_ONE>
 				{footer_one_data.map((item) => (
-					<div class="link__wrapper">
+					<div
+						id={shortid.generate()}
+						class="link__wrapper"
+					>
 						<NavLink
 							to=""
 							children={item}

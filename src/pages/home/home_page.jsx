@@ -37,7 +37,7 @@ const HOME = () => {
 	}
 
 	return (
-		<CONTAINER>
+		<CONTAINER className="home_page">
 			<PRODUCT_COLLECTION />
 			<PRODUCT_COLLECTION />
 			<PRODUCT_COLLECTION />
