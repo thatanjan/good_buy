@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, withRouter, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
+import './app.css'
 import TOP_BAR from 'components/top_bar/top_bar'
 
 export const Loading = () => <div>loading</div>
