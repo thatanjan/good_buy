@@ -6,7 +6,12 @@ import { ReactComponent as LOCATION_LOGO } from 'assets/svgs/location.svg'
 import SEARCH_BAR from 'components/search_bar/search_bar'
 import OPTIONS from 'components/options/options'
 
-import { useUserAuthData } from 'hooks/user_auth'
+import {
+	useUserAuthData,
+	useOnlyUser,
+} from 'hooks/user_auth'
+
+import { show_sign_in_or_user_name } from 'utils/user_sign_utils'
 
 // logos
 import AMAZON_LOGO from 'components/logos/amazon'
@@ -93,19 +98,16 @@ const NAVIGATION = Loadable({
 })
 
 const TOP_BAR = ({ location }) => {
-	const user_name = useUserAuthData()[0]
-	console.log(user_name?.email)
+	const user = useOnlyUser()
 	return (
 		<CONTAINER>
 			<div className="top__part">
 				<NAVIGATION />
 				<AMAZON_LOGO />
 				<div className="user">
-					{user_name
-						? user_name.displayName.split(
-								' '
-						  )[0]
-						: 'sign in'}
+					{`hello ${show_sign_in_or_user_name(
+						user
+					)}`}
 				</div>
 				<CART_LOGO />
 			</div>

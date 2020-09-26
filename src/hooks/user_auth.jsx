@@ -7,6 +7,11 @@ export const useUserAuthData = () => {
 	return state
 }
 
+export const useOnlyUser = () => {
+	const user = useContext(USER_CONTEXT)[0][0]
+	return user
+}
+
 export const useLoginState = () => {
 	const state = useContext(USER_CONTEXT)[1]
 	return state

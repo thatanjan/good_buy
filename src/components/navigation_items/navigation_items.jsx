@@ -4,6 +4,12 @@ import short_id from 'shortid'
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 
+import { show_sign_in_or_user_name } from 'utils/user_sign_utils'
+import {
+	useOnlyUser,
+	useUserAuthData,
+} from 'hooks/user_auth'
+
 const variants = {
 	initial: {
 		fontSize: '2rem',
@@ -30,24 +36,7 @@ const ITEMS = styled(NavLink)`
 // 	{ name: 'help', path: '/help' },
 // ]
 
-const account_items = [
-	' home ',
-	'account ',
-	'orders ',
-	'Buy again',
-	'lists',
-	'your browsing history',
-	'your recomendations',
-	'customer service',
-]
-
-const ACCOUNT = styled.div`
-	.greetings {
-		// & > hr {
-		// 	width: 100vw;
-		// }
-	}
-`
+const ACCOUNT = styled.div``
 
 const NAVIGATION_PARTS = styled.ul`
 	display: grid;
@@ -75,6 +64,16 @@ const NAVIGATION_PARTS = styled.ul`
 
 // export let nav_items_quantity = nav_items.length
 
+const account_items = [
+	'account ',
+	'orders ',
+	'Buy again',
+	'lists',
+	'your browsing history',
+	'your recomendations',
+	'customer service',
+]
+
 const explore_items = [
 	'Explore',
 	'home',
@@ -98,9 +97,14 @@ const navigation_parts = [
 ]
 
 const NAVIGATION_ITEMS = () => {
+	const user = useOnlyUser()
 	return (
 		<>
 			<WRAPPER>
+				<ACCOUNT>
+					hello{' '}
+					{show_sign_in_or_user_name(user)}
+				</ACCOUNT>
 				{navigation_parts.map((item) => (
 					<NAVIGATION_PARTS>
 						{item.map((parts, index) => (
@@ -132,19 +136,6 @@ const NAVIGATION_ITEMS = () => {
 					</NAVIGATION_PARTS>
 				))}
 			</WRAPPER>
-			{/* <ACCOUNT> */}
-			{/* 	<h1 className="greetings"> */}
-			{/* 		hello anjan */}
-			{/* 		<hr /> */}
-			{/* 	</h1> */}
-			{/* 	<ul class='account__item__'> */}
-			{/* 		{account_items.map((item) => ( */}
-			{/* 			   <li key=''><a href=""> */}
-			{/* 					 {item} */}
-			{/* 			   </a></li> */}
-			{/* 		))} */}
-			{/* 	</ul> */}
-			{/* </ACCOUNT> */}
 		</>
 	)
 }

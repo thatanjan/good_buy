@@ -18,7 +18,6 @@ const CONTEXT = ({ children }) => {
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
-				console.log(user)
 				set_is_logged_in(true)
 				set_user_state(user)
 			} else {
