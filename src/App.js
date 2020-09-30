@@ -19,9 +19,9 @@ const SIGN = Loadable({
 	loading: Loading,
 })
 
-const PRODUCT_DETAIL = Loadable({
+const PRODUCT_DETAILS = Loadable({
 	loader: () =>
-		import('pages/product_detail/product_detail'),
+		import('pages/product_details/product_details'),
 	loading: Loading,
 })
 
@@ -51,7 +51,7 @@ const App = ({ location }) => {
 				<Route
 					path="/product"
 					exact
-					component={PRODUCT_DETAIL}
+					component={PRODUCT_DETAILS}
 				/>
 			</Switch>
 		</>

@@ -6,10 +6,7 @@ import { ReactComponent as LOCATION_LOGO } from 'assets/svgs/location.svg'
 import SEARCH_BAR from 'components/search_bar/search_bar'
 import OPTIONS from 'components/options/options'
 
-import {
-	useUserAuthData,
-	useOnlyUser,
-} from 'hooks/user_auth'
+import { useOnlyUser } from 'hooks/user_auth'
 
 import { show_sign_in_or_user_name } from 'utils/user_sign_utils'
 

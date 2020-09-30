@@ -5,18 +5,22 @@ import './reset.css'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
 
+import THEME_CONTEXT from 'contexts/theme_context.jsx'
+
 import USER_CONTEXT from 'contexts/user_account'
 import CART_CONTEXT from 'contexts/cart_context'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Router>
-			<USER_CONTEXT>
-				<CART_CONTEXT>
-					<App />
-				</CART_CONTEXT>
-			</USER_CONTEXT>
-		</Router>
+		<THEME_CONTEXT>
+			<Router>
+				<USER_CONTEXT>
+					<CART_CONTEXT>
+						<App />
+					</CART_CONTEXT>
+				</USER_CONTEXT>
+			</Router>
+		</THEME_CONTEXT>
 	</React.StrictMode>,
 	document.getElementById('root')
 )

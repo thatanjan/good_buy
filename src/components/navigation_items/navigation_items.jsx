@@ -1,33 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import short_id from 'shortid'
-import { motion } from 'framer-motion'
+import shortid from 'shortid'
+// import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 
 import { show_sign_in_or_user_name } from 'utils/user_sign_utils'
 import {
 	useOnlyUser,
-	useUserAuthData,
+	// useUserAuthData,
 } from 'hooks/user_auth'
 
-const variants = {
-	initial: {
-		fontSize: '2rem',
-	},
-	hover: {
-		fontSize: '3rem',
-		// color: '#fff',
-		color: 'brown',
-	},
-}
+// const variants = {
+// 	initial: {
+// 		fontSize: '2rem',
+// 	},
+// 	hover: {
+// 		fontSize: '3rem',
+// 		// color: '#fff',
+// 		color: 'brown',
+// 	},
+// }
 
 const WRAPPER = styled.div`
 	padding: 5rem;
 `
 
-const ITEMS = styled(NavLink)`
-	color: white;
-`
+// const ITEMS = styled(NavLink)`
+// 	color: white;
+// `
 
 // const nav_items = [
 // 	{ name: 'home', path: '/' },
@@ -106,7 +106,9 @@ const NAVIGATION_ITEMS = () => {
 					{show_sign_in_or_user_name(user)}
 				</ACCOUNT>
 				{navigation_parts.map((item) => (
-					<NAVIGATION_PARTS>
+					<NAVIGATION_PARTS
+						key={shortid.generate()}
+					>
 						{item.map((parts, index) => (
 							<>
 								{index === 0 ? (

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import Loadable from 'react-loadable'
 import { AnimatePresence } from 'framer-motion'
 
-import home_page_ref from 'pages/home/home_page'
+// import home_page_ref from 'pages/home/home_page'
 
 // components
 const Loading = () => <div>loading</div>
