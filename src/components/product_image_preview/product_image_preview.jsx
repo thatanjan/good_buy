@@ -13,9 +13,11 @@ import product_image from 'assets/product_image.jpg'
 // `;
 const IMAGE_PREVIEW_WRAPPER = styled(WRAPPER)`
 	padding-top: 80%;
+	margin: 2rem 0;
 
 	@media (min-width: 768px) {
 		padding-top: 75%;
+		align-self: baseline;
 	}
 `
 
@@ -28,6 +30,7 @@ const IMAGE_PREVIEW_CONTAINER = styled(
 
 // for the main image
 const MAIN_PREVIEW_IMAGE = styled.img`
+	cursor: pointer;
 	width: 100%;
 	height: 100%;
 	// object-fit: cover;
@@ -43,6 +46,7 @@ const MORE_IMAGE_PREVIEW = styled.section`
 	& > .more__preview {
 		height: 60%;
 		width: 60%;
+		cursor: pointer;
 	}
 
 	.active {

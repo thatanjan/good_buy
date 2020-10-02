@@ -2,60 +2,78 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-const PRODUCT_DEATILS_SUMMARY = styled.div`
-	& > div,
-	a {
-		padding: 0.5rem 0;
-	}
+import {
+	WRAPPER,
+	CONTAINER as container,
+} from 'components/wrappers/aspect_ratio_wrapper'
 
-	& > a {
-		color: ${({ theme }) => theme.font.color.link};
-		display: block;
-	}
+const PRODUCT_SUMMARY = styled.section`
+	// background: teal;
+	padding: 2rem 0;
 
-	@media (min-width: 1024px) {
-		padding-left: 3rem;
-		padding: 0 5%;
+	@media (min-width: 768px) {
+		padding: 2rem;
 	}
 `
-
-const PRODUCT_TITLE = styled.h2`
-	font-size: 2rem;
+const STORE_TITLE = styled.h1`
+	font-size: ${({ theme }) =>
+		theme.small_screen.font_size.normal_font_size};
 `
 
-const PRODUCT__REVIEW__SUMMARY = styled.div`
+const PRODUCT_TITLE = styled.h1`
+	font-size: ${({ theme }) =>
+		theme.small_screen.font_size.secondary_font_size};
+	margin: 1rem 0;
+`
+
+const REVIEWS_STARS = styled.section`
+	min-height: 9rem;
+	height: 15%;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-
+	grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+	align-items: center;
+	font-size: 1rem;
 	& > * {
-		padding: 1rem 0;
-		// display: none;
+		padding: 0 1rem;
 	}
 `
 
-const CHOICE = styled.button`
-	background: ${({ theme }) =>
-		theme.button.background.primary};
-	width: 40%;
+const CHOICE_PRODUCT = styled.button`
+	height: 5rem;
+	max-width: 20rem;
+	width: 50%;
+	background: red;
 	display: grid;
 	place-items: center;
-	padding: 1rem;
+	background: ${({ theme }) =>
+		theme.button.background.primary};
 	color: ${({ theme }) => theme.font.color.primary};
 `
 
-const DESCRIPTION = styled.div`
-	margin: 1rem 0;
-	font-size: 1.3rem;
+const DESCRIPTION = styled.section`
+	height: 15%;
+	// border: 1px solid black;
+	// background: blue;
+	font-size: ${({ theme }) =>
+		theme.small_screen.font_size.normal_font_size};
+	display: grid;
+	grid-template-columns: 50% 50%;
+	place-items: center baseline;
+	margin: 2rem 2rem;
 `
 
+const COMPARE_REPORT = styled.section`
+	   & > a{
+			 display: block;
+			 margin-bottom 1rem;
+	   }
+`
 const PRODUCT_DETAILS = () => {
 	return (
-		<PRODUCT_DEATILS_SUMMARY>
-			<h3 className="product__store">
-				visit the nike store
-			</h3>
+		<PRODUCT_SUMMARY>
+			<STORE_TITLE children="visit the nike store" />
 			<PRODUCT_TITLE children="Nike Men's Revolution 5 Running Shoe" />
-			<PRODUCT__REVIEW__SUMMARY>
+			<REVIEWS_STARS>
 				<div className="reviews">
 					12000 reviews
 				</div>
@@ -66,24 +84,47 @@ const PRODUCT_DETAILS = () => {
 				<div className="comments">
 					1435 comments
 				</div>
-			</PRODUCT__REVIEW__SUMMARY>
-
-			<CHOICE children="choice" />
+			</REVIEWS_STARS>
+			<CHOICE_PRODUCT children="hello world >>" />
 			<DESCRIPTION>
-				Brand: LG Series LG Ultra PC <br />
-				Display Size: 17 Inches Operating
-				<br />
-				System: Windows 10 Home Processor
-				<br />
-				Count 4
+				<div
+					className="product__property"
+					children="Brand:"
+				/>{' '}
+				<div
+					className="product__value"
+					children="LG Series LG Ultra PC"
+				/>
+				<div
+					className="product__property"
+					children="Display Size:"
+				/>
+				<div
+					className="product__value"
+					children="17 Inches"
+				/>
+				<div
+					className="product__property"
+					children="Operating System:"
+				/>
+				<div
+					className="product__value"
+					children="Windows 10 Home"
+				/>
 			</DESCRIPTION>
-			<NavLink to="" className="compare__similar">
-				compare with similar items
-			</NavLink>
-			<NavLink to="" className="report">
-				report incorrect product description
-			</NavLink>
-		</PRODUCT_DEATILS_SUMMARY>
+			<COMPARE_REPORT>
+				<NavLink
+					to=""
+					className="compare__similar"
+				>
+					compare with similar items
+				</NavLink>
+				<NavLink to="" className="report">
+					report incorrect product
+					description
+				</NavLink>
+			</COMPARE_REPORT>
+		</PRODUCT_SUMMARY>
 	)
 }
 

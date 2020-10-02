@@ -4,6 +4,7 @@ import Loadable from 'react-loadable'
 
 import './app.css'
 import TOP_BAR from 'components/top_bar/top_bar'
+import FOOTER from 'components/footer/footer'
 
 export const Loading = () => <div>loading</div>
 
@@ -54,6 +55,7 @@ const App = ({ location }) => {
 					component={PRODUCT_DETAILS}
 				/>
 			</Switch>
+			<FOOTER />
 		</>
 	)
 }

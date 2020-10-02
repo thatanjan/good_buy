@@ -38,11 +38,12 @@ const QUANTITY = styled.div`
 	}
 	.quantity__input {
 		width: 100%;
+		margin: 0 auto;
 	}
 `
 
 const CART_SECTION_BUTTON = styled.button`
-	flex-basis: 100%;
+	flex-basis: 70%;
 	// background: yellow;
 	background: ${({ theme }) =>
 		theme.button.background.primary};

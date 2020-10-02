@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const RATIO__CONTAINER_STYLE = styled.div`
 	margin-top: 1rem;
@@ -85,10 +86,12 @@ const PRODUCT_COLLECTION = () => {
 				<h2>see the exclusive details below</h2>
 				<PRODUCT_CONTAINER>
 					<PRODUCTS>
-						<img
-							src="https://kompark.ru/wp-content/uploads/2019/03/V1AAul9f3ao.jpg"
-							alt=""
-						/>
+						<NavLink to="/product">
+							<img
+								src="https://kompark.ru/wp-content/uploads/2019/03/V1AAul9f3ao.jpg"
+								alt=""
+							/>
+						</NavLink>
 					</PRODUCTS>
 					<PRODUCTS>
 						<img

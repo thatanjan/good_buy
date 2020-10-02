@@ -5,11 +5,11 @@ const theme = {
 	font: {
 		size: {
 			primary_header_font_size: '3rem',
-			secondary_header_font_size: '2.5rem',
-			normal_font_size: '1rem',
+			secondary_header_font_size: '2rem',
+			normal_font_size: '1.5rem',
 		},
 		color: {
-			primary: '#d9d9d9',
+			primary: '#9f9f9f',
 			link: '#7e7efd',
 			hover: 'white',
 		},
@@ -21,6 +21,13 @@ const theme = {
 	button: {
 		background: {
 			primary: '#b57501',
+		},
+	},
+
+	small_screen: {
+		font_size: {
+			normal_font_size: '1rem',
+			secondary_font_size: '2rem',
 		},
 	},
 }

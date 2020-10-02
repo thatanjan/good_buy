@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import PRODUCT_COLLECTION from 'components/product_collection/product_collection'
-import FOOTER from 'components/footer/footer'
 
 const CONTAINER = styled.div`
 	height: auto;
@@ -48,9 +47,6 @@ const HOME = () => {
 				you have reach the end{' '}
 				<div className="arrow-up"></div>
 			</button>
-
-			{/* the footer */}
-			<FOOTER />
 		</CONTAINER>
 	)
 }
