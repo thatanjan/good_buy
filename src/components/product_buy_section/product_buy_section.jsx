@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const BUY_SECTION = styled.section`
-	color: ${({ theme }) => theme.font.color.primary};
+	// color: ${({ theme }) => theme.font.color.primary};
 
 	margin: 2rem 0;
 	border: 1px solid;
@@ -45,8 +45,6 @@ const QUANTITY = styled.div`
 const CART_SECTION_BUTTON = styled.button`
 	flex-basis: 70%;
 	// background: yellow;
-	background: ${({ theme }) =>
-		theme.button.background.primary};
 	color: inherit;
 	margin-bottom: 1rem;
 	padding: 1rem;

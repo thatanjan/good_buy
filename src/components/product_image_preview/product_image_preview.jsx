@@ -11,7 +11,7 @@ import product_image from 'assets/product_image.jpg'
 
 // const IMAGE_PREVIEW_WRAPPER = styled(WRAPPER)`
 // `;
-const IMAGE_PREVIEW_WRAPPER = styled(WRAPPER)`
+export const IMAGE_PREVIEW_WRAPPER = styled(WRAPPER)`
 	padding-top: 80%;
 	margin: 2rem 0;
 
@@ -21,7 +21,7 @@ const IMAGE_PREVIEW_WRAPPER = styled(WRAPPER)`
 	}
 `
 
-const IMAGE_PREVIEW_CONTAINER = styled(
+export const IMAGE_PREVIEW_CONTAINER = styled(
 	image_preview_container
 )`
 	display: grid;
@@ -29,7 +29,7 @@ const IMAGE_PREVIEW_CONTAINER = styled(
 `
 
 // for the main image
-const MAIN_PREVIEW_IMAGE = styled.img`
+export const MAIN_PREVIEW_IMAGE = styled.img`
 	cursor: pointer;
 	width: 100%;
 	height: 100%;

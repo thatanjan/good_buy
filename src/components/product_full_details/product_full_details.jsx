@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const FULL_DETAILS = styled.div`
-	grid-column: 1/4;
+	@media (min-width: 768px) {
+		grid-column: 1/4;
+	}
 `
 
 const DETAILS_HEADER = styled.div`
@@ -15,7 +17,8 @@ const THE_DETAILS = styled.ol`
 		padding: 1rem 1rem 0 1rem;
 		font-size: 1.4rem;
 		line-height: 2.5rem;
-		color: ${({ theme }) => theme.font.color.primary};
+		// color: ${({ theme }) =>
+			theme.font.color.primary};
 
 		& ::marker {
 			font-weight: bold;

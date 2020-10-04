@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import {
-	WRAPPER,
-	CONTAINER as container,
-} from 'components/wrappers/aspect_ratio_wrapper'
+// import {
+// 	WRAPPER,
+// 	CONTAINER as container,
+// } from 'components/wrappers/aspect_ratio_wrapper'
 
 const PRODUCT_SUMMARY = styled.section`
 	// background: teal;
@@ -16,13 +16,11 @@ const PRODUCT_SUMMARY = styled.section`
 	}
 `
 const STORE_TITLE = styled.h1`
-	font-size: ${({ theme }) =>
-		theme.small_screen.font_size.normal_font_size};
+	font-size: ${({ theme }) => theme.small_screen.md};
 `
 
 const PRODUCT_TITLE = styled.h1`
-	font-size: ${({ theme }) =>
-		theme.small_screen.font_size.secondary_font_size};
+	font-size: ${({ theme }) => theme.small_screen.lg};
 	margin: 1rem 0;
 `
 
@@ -45,17 +43,14 @@ const CHOICE_PRODUCT = styled.button`
 	background: red;
 	display: grid;
 	place-items: center;
-	background: ${({ theme }) =>
-		theme.button.background.primary};
-	color: ${({ theme }) => theme.font.color.primary};
+	// color: ${({ theme }) => theme.font.color.primary};
 `
 
 const DESCRIPTION = styled.section`
 	height: 15%;
 	// border: 1px solid black;
 	// background: blue;
-	font-size: ${({ theme }) =>
-		theme.small_screen.font_size.normal_font_size};
+	font-size: ${({ theme }) => theme.small_screen.sm};
 	display: grid;
 	grid-template-columns: 50% 50%;
 	place-items: center baseline;

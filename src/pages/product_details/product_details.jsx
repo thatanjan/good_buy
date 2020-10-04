@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 // import { NavLink } from 'react-router-dom'
-import {
-	WRAPPER,
-	CONTAINER as container,
-} from 'components/wrappers/aspect_ratio_wrapper'
+// import {
+// 	WRAPPER,
+// 	CONTAINER as container,
+// } from 'components/wrappers/aspect_ratio_wrapper'
 
 import PRODUCT_DETAILS_SUMMARY from 'components/product_details/product_details'
 
@@ -19,8 +19,7 @@ const CONTAINER = styled.div`
 	grid-template-columns: 1fr;
 	margin: 5%;
 	max-width: 100vw;
-	color: ${({ theme }) => theme.font.color.primary};
-
+	// color: ${({ theme }) => theme.font.color.primary};
 	@media (min-width: 768px) {
 		grid-template-columns: 3fr 4fr 2fr;
 	}

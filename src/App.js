@@ -26,6 +26,11 @@ const PRODUCT_DETAILS = Loadable({
 	loading: Loading,
 })
 
+const CART = Loadable({
+	loader: () => import('pages/cart_page/cart_page'),
+	loading: Loading,
+})
+
 export let global_break = 1600
 
 const App = ({ location }) => {
@@ -54,8 +59,14 @@ const App = ({ location }) => {
 					exact
 					component={PRODUCT_DETAILS}
 				/>
+				<Route
+					path="/cart"
+					exact
+					component={CART}
+				/>
 			</Switch>
-			<FOOTER />
+			{/* show the Footer only if not in /sign route */}
+			{location.pathname !== '/sign' && <FOOTER />}
 		</>
 	)
 }

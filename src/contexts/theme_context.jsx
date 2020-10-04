@@ -1,38 +1,46 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-const theme = {
-	font: {
-		size: {
-			primary_header_font_size: '3rem',
-			secondary_header_font_size: '2rem',
-			normal_font_size: '1.5rem',
-		},
-		color: {
-			primary: '#9f9f9f',
-			link: '#7e7efd',
-			hover: 'white',
-		},
+const lead = 1
+const increment = 0.5
 
-		padding: {
-			bottom: '1rem',
-		},
-	},
-	button: {
-		background: {
-			primary: '#b57501',
-		},
-	},
-
-	small_screen: {
-		font_size: {
-			normal_font_size: '1rem',
-			secondary_font_size: '2rem',
-		},
-	},
+class Screen_size {
+	constructor(lead) {
+		this.xsm = `${lead - 0.5}rem`
+		this.sm = `${lead}`
+		this.md = `${lead + increment}rem`
+		this.lg = `${lead + increment * 2}rem`
+		this.xl = `${lead + increment * 3}rem`
+	}
 }
 
-const THEME_CONTEXT = ({ children }) => {
+const small_screen = new Screen_size(lead)
+const medium_screen = new Screen_size(lead + increment)
+const large_screen = new Screen_size(lead + increment * 2)
+
+const theme = { small_screen, medium_screen, large_screen }
+
+// const theme = {
+// 	size: {
+// 		small_screen: {
+// 			sm: '1rem',
+// 			md: '1.5rem',
+// 			lg: '2rem',
+// 			xl: '2.5rem',
+// 		},
+// 		   medium_screen:{
+// 			sm: '1.5rem',
+// 			md: '2rem',
+// 			lg: '2.5rem',
+// 			xl: '3rem',
+// 		   }
+// 		   , large_screen: {
+// 				 sm:
+// 		   }
+// 	},
+// }
+
+const SIZE_CONTEXT = ({ children }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			{children}
@@ -40,4 +48,4 @@ const THEME_CONTEXT = ({ children }) => {
 	)
 }
 
-export default THEME_CONTEXT
+export default SIZE_CONTEXT
