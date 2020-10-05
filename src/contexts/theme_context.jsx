@@ -7,7 +7,7 @@ const increment = 0.5
 class Screen_size {
 	constructor(lead) {
 		this.xsm = `${lead - 0.5}rem`
-		this.sm = `${lead}`
+		this.sm = `${lead}rem`
 		this.md = `${lead + increment}rem`
 		this.lg = `${lead + increment * 2}rem`
 		this.xl = `${lead + increment * 3}rem`

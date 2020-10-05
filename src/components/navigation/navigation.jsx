@@ -36,11 +36,9 @@ const NAVIGATION = ({ window_state }) => {
 		)
 
 		if (!condition) {
-			home_page_element.classList.add(class_name)
+			document.body.style.overflowY = 'hidden'
 		} else {
-			home_page_element.classList.remove(
-				class_name
-			)
+			document.body.style.overflowY = 'auto'
 		}
 		// home_page_element.style.overflow = !condition
 		// 	? 'hidden'

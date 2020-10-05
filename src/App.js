@@ -27,7 +27,7 @@ const PRODUCT_DETAILS = Loadable({
 })
 
 const CART = Loadable({
-	loader: () => import('pages/cart_page/cart_page'),
+	loader: () => import('pages/cart_page/cart_page2'),
 	loading: Loading,
 })
 
