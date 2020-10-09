@@ -11,14 +11,14 @@ export const USER_CONTEXT = createContext()
 const CONTEXT = ({ children }) => {
 	const [user_state, set_user_state] = useState(null)
 
-	const [is_logged_in, set_is_logged_in] = useState(
-		false
-	)
+	// 	const [is_logged_in, set_is_logged_in] = useState(
+	// 		false
+	// 	)
 
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
-				set_is_logged_in(true)
+				// set_is_logged_in(true)
 				set_user_state(user)
 			} else {
 				console.log('no user')
@@ -26,10 +26,12 @@ const CONTEXT = ({ children }) => {
 		})
 	}, [])
 
-	const context_value = [
-		[user_state, set_user_state],
-		[is_logged_in, set_is_logged_in],
-	]
+	// const context_value = [
+	// 	[user_state, set_user_state],
+	// 	[is_logged_in, set_is_logged_in],
+	// ]
+
+	const context_value = [user_state, set_user_state]
 
 	return (
 		<USER_CONTEXT.Provider value={context_value}>

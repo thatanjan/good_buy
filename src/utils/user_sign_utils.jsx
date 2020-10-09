@@ -3,7 +3,6 @@ export const show_first_name = ({ displayName }) => {
 }
 
 export const show_sign_in_or_user_name = (user) => {
-	console.log(user)
 	if (user !== null) {
 		return show_first_name(user)
 	} else {

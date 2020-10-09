@@ -46,8 +46,9 @@ const CONTAINER = styled(motion.nav)`
 	// }
 `
 
-const NAVIGATION_BAR = ({ toggle }) => {
-	console.log(toggle)
+const NAVIGATION_BAR = ({ toggle, navigation_items }) => {
+	// console.log(navigation_items)
+
 	return (
 		<CONTAINER
 			variants={navigation_variants}
@@ -56,7 +57,8 @@ const NAVIGATION_BAR = ({ toggle }) => {
 			exit="exit"
 		>
 			<QUIT_BUTTON toggle={toggle} />
-			<NAVIGATION_ITEMS />
+			{/* {navigation_items()} */}
+			{/* <NAVIGATION_ITEMS /> */}
 		</CONTAINER>
 	)
 }

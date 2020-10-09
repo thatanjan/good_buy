@@ -31,16 +31,22 @@ const CART = Loadable({
 	loading: Loading,
 })
 
+const ACCOUNT = Loadable({
+	loader: () =>
+		import('pages/account_page/account_page'),
+	loading: Loading,
+})
+
 export let global_break = 1600
 
 const App = ({ location }) => {
 	return (
 		<>
 			{/* show the top navigation bar only if not in /sign route */}
-			{location.pathname !== '/sign' && (
-				<TOP_BAR></TOP_BAR>
-			)}
-
+			{location.pathname !== '/sign' &&
+				location.pathname !== '/account' && (
+					<TOP_BAR></TOP_BAR>
+				)}
 			<Switch>
 				<Route
 					path="/"
@@ -64,9 +70,17 @@ const App = ({ location }) => {
 					exact
 					component={CART}
 				/>
+				<Route
+					path="/account"
+					exact
+					component={ACCOUNT}
+				/>
 			</Switch>
 			{/* show the Footer only if not in /sign route */}
-			{location.pathname !== '/sign' && <FOOTER />}
+			{location.pathname !== '/sign' &&
+				location.pathname !== '/account' && (
+					<FOOTER />
+				)}{' '}
 		</>
 	)
 }

@@ -11,24 +11,19 @@ const Loading = () => <div>loading</div>
 // the navigation bar
 const NAVIGATION_BAR = Loadable({
 	loader: () =>
-		import(
-			'components/navigation_bar/navigation_bar'
-		),
+		import('components/navigation_bar/navigation_bar'),
 	loading: Loading,
 })
 
 // the hamburger_menu
 const HAMBURGER_MENU = Loadable({
 	loader: () =>
-		import(
-			'components/hamburger_menu/hamburger_menu'
-		),
+		import('components/hamburger_menu/hamburger_menu'),
 	loading: Loading,
 })
 
-const NAVIGATION = ({ window_state }) => {
+const NAVIGATION = ({ window_state, items }) => {
 	// const home_page_element = useRef(home_page_ref).current
-
 	const disable_scroll = (condition) => {
 		const class_name = 'disable__scroll'
 		const home_page_element = document.querySelector(
@@ -67,6 +62,7 @@ const NAVIGATION = ({ window_state }) => {
 			<AnimatePresence>
 				{toggle_navigation && (
 					<NAVIGATION_BAR
+						navigation_items={items}
 						toggle={toggle_nav}
 					/>
 				)}

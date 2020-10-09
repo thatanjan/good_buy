@@ -3,13 +3,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import amazon_logo from 'assets/svgs/amazon-2.svg'
+import { ReactComponent as AMAZON_LOGO } from 'assets/svgs/amazon-2.svg'
 
 const WRAPPER = styled(NavLink)`
 	display: grid;
+	height: 100%;
 `
 
-export const LOGO = styled.img`
+export const LOGO = styled(AMAZON_LOGO)`
 	// background: orange;
 	height: 50%;
 	max-width: 10rem;
@@ -20,7 +21,7 @@ export const LOGO = styled.img`
 const AMAZON = () => {
 	return (
 		<WRAPPER to="/">
-			<LOGO src={amazon_logo} />
+			<LOGO />
 		</WRAPPER>
 	)
 }

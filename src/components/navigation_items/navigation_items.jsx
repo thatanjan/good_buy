@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom'
 
 import { show_sign_in_or_user_name } from 'utils/user_sign_utils'
 import {
-	useOnlyUser,
-	// useUserAuthData,
+	// useOnlyUser,
+	useUserAuthData,
 } from 'hooks/user_auth'
 
 // const variants = {
@@ -97,18 +97,15 @@ const navigation_parts = [
 ]
 
 const NAVIGATION_ITEMS = () => {
-	const user = useOnlyUser()
+	const user = useUserAuthData()
 	return (
 		<>
 			<WRAPPER>
 				<ACCOUNT>
-					hello{' '}
-					{show_sign_in_or_user_name(user)}
+					hello {show_sign_in_or_user_name(user)}
 				</ACCOUNT>
 				{navigation_parts.map((item) => (
-					<NAVIGATION_PARTS
-						key={shortid.generate()}
-					>
+					<NAVIGATION_PARTS key={shortid.generate()}>
 						{item.map((parts, index) => (
 							<>
 								{index === 0 ? (
@@ -116,9 +113,7 @@ const NAVIGATION_ITEMS = () => {
 										<li>
 											<NavLink
 												to=""
-												children={
-													parts
-												}
+												children={parts}
 											/>
 										</li>
 										{/* <div></div>{' '} */}
@@ -127,9 +122,7 @@ const NAVIGATION_ITEMS = () => {
 									<li className="nav__options">
 										<NavLink
 											to=""
-											children={
-												parts
-											}
+											children={parts}
 										/>
 									</li>
 								)}{' '}

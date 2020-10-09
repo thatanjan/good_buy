@@ -97,8 +97,8 @@ const FOOTER = () => {
 			<FOOTER_ONE>
 				{footer_one_data.map((item) => (
 					<div
-						id={shortid.generate()}
-						class="link__wrapper"
+						key={shortid.generate()}
+						className="link__wrapper"
 					>
 						<NavLink
 							to=""
@@ -110,24 +110,16 @@ const FOOTER = () => {
 			</FOOTER_ONE>
 			<FOOTER_TWO>
 				<div className="country">
-					<div className="language">
-						English
-					</div>
+					<div className="language">English</div>
 					<div className="currency">
 						Bangladeshi Taka
 					</div>
 					<div>
 						Bangladesh
-						<span
-							role="img"
-							aria-label="xx"
-						>
+						<span role="img" aria-label="xx">
 							&#127463;
 						</span>
-						<span
-							role="img"
-							aria-label="xx"
-						>
+						<span role="img" aria-label="xx">
 							&#127465;
 						</span>
 					</div>
@@ -138,18 +130,12 @@ const FOOTER = () => {
 				<div className="sign_out">sign out</div>
 
 				<div className="legals">
-					<div className="condition">
-						condition
-					</div>
-					<div className="privacy">
-						privacy notice
-					</div>
-					<div className="ads">
-						internet based ads
-					</div>
+					<div className="condition">condition</div>
+					<div className="privacy">privacy notice</div>
+					<div className="ads">internet based ads</div>
 					<div className="other">
-						1996-2020, Amazon.com, Inc. or
-						its afflicates
+						1996-2020, Amazon.com, Inc. or its
+						afflicates
 					</div>
 				</div>
 			</FOOTER_TWO>
